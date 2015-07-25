@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Voice2Text</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/materialize-css/bin/materialize.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Voice2Text</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Demo</a></li>
+                <li><a href="how-to-use.html">How to use</a></li>
+            </ul>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="/">Demo</a></li>
+                <li><a href="how-to-use.html">How to use</a></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+    </nav>
+    <main>
+        <div class="card-panel">
+            <textarea style="width: 100%; height: 100px; color: black; font-size: 16px;" id="text_content" data-voicecontrol-target="1234"></textarea>
+            <a class="btn-floating btn-large waves-effect waves-light red" data-js="voicecontrol" data-voicecontrol-for="1234">
+                <i class="material-icons" data-js="voicecontrol" data-voicecontrol-for="1234">settings_voice</i>
+            </a>
+            <button class="btn waves-effect waves-light right" type="submit" name="action">
+                Submit
+            </button>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            © 2015 Santi Leopardo
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="node_modules/materialize-css/bin/materialize.js"></script>
+    <script src="scripts/voice2text.js"></script>
+    <script>
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+
+    // VoiceControl is a Singleton
+    var voiceControl = new VoiceControl({
+        trigger: '[data-js="voicecontrol"]',
+        lang: 'es-AR'
+    });
+    </script>
+</body>
+</html>
